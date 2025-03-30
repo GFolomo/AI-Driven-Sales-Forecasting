@@ -21,7 +21,7 @@ Their goal is to:
     b.	Compute statistical summaries to understand data distribution.
   3)	Model Development 
   4)	Model Optimization
-    a.	Fine-tuning parameters to improve performance.
+    Fine-tuning parameters to improve performance.
   5)	Model Evaluation
 Assess improvements in error reduction, trend accuracy, and prediction stability.
 
