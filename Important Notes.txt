@@ -1,0 +1,45 @@
+Important Notes
+---------------
+1) The dataset of this project is available in the sales_data.csv file.
+2) A leeway was given for models selection and the platform to be used:
+	a) Model Selection: Facebook Prophet and XGBoost were chosen for this project.
+		* Facebook Prophet: an open-source time series forecasting model developed by Facebook (Meta) that specializes in handling business and economic data with seasonal trends, holiday effects, and irregular patterns. 					    It is a parametric model that decomposes time series into three components. 
+
+				    The choice was motivated by the fact that:
+				   - It naturally captures business trends and seasonality (automatically detects seasonality and trends without requiring extensive feature engineering).
+				   - It is specifically designed for sales, demand forecasting, and business data, where recurring patterns influence future outcomes.
+				   - It is robust to missing values and unevenly spaced observations (handles Missing Data & Irregular Time Intervals).
+				   - It does not require data imputation even when historical data is incomplete.
+				   - It provides interpretable forecasts (Unlike XGBoost, which is a black-box model).
+				   - It allows manual adjustments to trends (e.g. adding known future events).
+                                   - It is lightweight and fast to train, making it easy to deploy (unlike deep learning models like LSTM).
+				   - It requires minimal parameter tuning, making it accessible even to non-experts.
+				   - It provides quick model iterations allowing businesses to test different forecasting scenarios efficiently.
+			  
+		* XGBoost: Extreme Gradient Boosting, a powerful machine learning algorithm optimized for speed and performance. It is an ensemble learning technique based on gradient boosting, where multiple decision trees are 				   built sequentially to minimize errors.
+					
+				    The choice was motivated by the fact that:
+				   - It provides high predictive accuracy, robustness, and efficiency in handling complex tasks. 
+				   - It is able to Handle complex relationships (non-linear, etc.).
+				   - It helps build a richer model by leveraging external influences on trends.
+				   - It handles missing data & outliers
+
+--------------------------------------------------------------------------------------------------------
+Feature				 Prophet		        XGBoost
+-------------------------------	-------------------------------	----------------------------------------
+*Accuracy 		>>>>>>	    Good			    Better
+*Seasonality Handling	>>>>>>>	✅ Built-in			❌ Requires feature engineering
+*Trend Forecasting	>>>>>>>	✅ Adaptive & interpretable	❌ Sometimes overfits to training data
+*Computational Efficiency  >>>>	✅ Fast & lightweight		⚠ Slightly heavier
+*Handling of Missing Data  >>>>	✅ Native support		⚠ Requires imputation
+*Explainability		   >>>>	✅ High (decomposes trends)	❌ Black-box model
+---------------------------------------------------------------------------------------------------------
+
+	b) Development Platforms:
+	  	* Prophet Model: developed in Jupyter Notebook.
+		* XGBoost Model: developed in Google Colab (exploration).
+
+3) NB
+- No outliers were removed (For Prophet: it was crucial that the model detects these fluctuations / For XGBoost: handles well outliers).
+- The models were trained on the entire dataset - to allow them to capture seasonality and trends but more to this, the dataset is quite small (in the context of sales trends) as it is only 1 year worth of data.
+- Prophet incorporates US holidays.
